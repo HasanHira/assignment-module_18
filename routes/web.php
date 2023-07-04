@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Task 5
+Route::get('/', [PostController::class, 'allPostsWithCategory'])->name('posts');
+
+// Task 6
+Route::get('/categorypost/{id}', [PostController::class, 'categoryPost']);
+
+// Task 7
+Route::get('/posts/{id}/delete', [PostController::class, 'softDeletePost'])->name('postDestroy');
+
+// Task 8
+// task 8
+Route::get('/showDeletedData', [PostController::class, 'deletedData'])->name('softDeletedData');
