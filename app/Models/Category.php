@@ -14,4 +14,10 @@ class Category extends Model
         return $this->hasMany(Post::class);
     }
 
+    // Task 11
+    public function LatestPost()
+    {
+        return $this->posts()->orderBy('id', 'desc')->first();
+    }
+
 }

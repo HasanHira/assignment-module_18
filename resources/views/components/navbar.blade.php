@@ -7,8 +7,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
                 <li class="nav-item"><a class="nav-link" href="{{ route('posts') }}">Home</a></li>
-                {{-- <li class="nav-item"><a class="nav-link" href="{{ route('categoryPosts', 3) }}">Post</a></li> --}}
-                {{-- <li class="nav-item"><a class="nav-link" href="{{ route('categories') }}">Category</a></li> --}}
+                <li class="nav-item"><a class="nav-link" href="{{ route('category_posts', 3) }}">Posts</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('categories') }}">Categories</a></li>
             </ul>
         </div>
     </div>

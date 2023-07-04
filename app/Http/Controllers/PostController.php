@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    // Task 5:
+    // Task 5: & Task 9:
     public function allPostsWithCategory()
     {
         $posts = Post::with('category')->get();
@@ -40,4 +40,5 @@ class PostController extends Controller
         $showSoftData = Post::onlyTrashed()->get();
         return $showSoftData;
     }
+
 }

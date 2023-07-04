@@ -3,64 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    // Task 10
+    public function showPostsByCategoryID($categoryId)
     {
-        //
+        $categories = Category::with('posts')->where('id', '=', $categoryId)->get();
+        return view('pages.category_posts', compact('categories'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    // Task 11
+    public function latestPosts($id)
     {
-        //
+        $category = Category::findOrFail($id)->LatestPost();
+        return $category;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreCategoryRequest $request)
-    {
-        //
-    }
+    // Task 12
+    public function CategoriesLatestPosts()
+      {
+          $categories = Category::all();
+          return view('pages.categories',compact('categories'));
+      }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Category $category)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Category $category)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateCategoryRequest $request, Category $category)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Category $category)
-    {
-        //
-    }
 }
